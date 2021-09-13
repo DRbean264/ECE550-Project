@@ -195,6 +195,32 @@ module alu_tb();
                 $display("**Error in SUB (test 10); expected: %h, actual: %h", 32'h00000000, data_result);
                 errors = errors + 1;
             end
+				
+				@(negedge clock);
+            assign ctrl_ALUopcode = 5'b00001;
+            assign ctrl_shiftamt = 5'b00000;
+
+            assign data_operandA = 32'hFFFFFFFF;
+            assign data_operandB = 32'hFFFFFFFE;
+
+            @(negedge clock);
+            if(data_result !== 32'h00000001) begin
+                $display("**Error in SUB (test 10); expected: %h, actual: %h", 32'h00000001, data_result);
+                errors = errors + 1;
+            end
+				
+				@(negedge clock);
+            assign ctrl_ALUopcode = 5'b00001;
+            assign ctrl_shiftamt = 5'b00000;
+
+            assign data_operandA = 32'd13728944;
+            assign data_operandB = 32'd71930443;
+
+            @(negedge clock);
+            if(data_result !== -32'd58201499) begin
+                $display("**Error in SUB (test 10); expected: %h, actual: %h", -32'd58201499, data_result);
+                errors = errors + 1;
+            end
         end
     endtask
 

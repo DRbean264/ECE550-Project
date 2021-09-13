@@ -44,7 +44,7 @@ module general_adder_32(Sum, Cout, overflow, A, B, ctrl_ALUopcode);
 	
 	wire [31:0] notB, B_input;
 	
-	assign notB = ~B;
+	not_32 not_32_0(notB, B);
 	assign B_input = ctrl_ALUopcode[0] ? notB : B;  //  add/sub
 	
 	csa_32 csa(Sum, Cout, overflow, A, B_input, ctrl_ALUopcode[0]);

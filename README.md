@@ -1,4 +1,4 @@
-# Project1 - ALU Checkpoint 1 - Addsub-base
+# Project1 - ALU Checkpoint 2
 **Author: Yuzhe Ding (yd160); Aohua Zhang (az147)**
 **Date: 09.23.2021**
 
